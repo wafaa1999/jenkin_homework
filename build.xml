@@ -1,0 +1,61 @@
+
+<project default="compile">
+
+
+    <property name="src.java.dir" location="./src/pro"/>
+    <property name="src.test.dir" location="./src/test"/>
+    <property name="result.dir" location="./target"/>
+    <property name="result.javaclasses.dir" location="${result.dir}/classes"/>
+    <property name="result.testclasses.dir" location="${result.dir}/testclasses"/>
+
+
+
+
+
+    <path id="NecessaryLibraries">
+        <pathelement location="./UsedLibraries/junit-4.12.jar"/>
+        <!--matcher-->
+        <pathelement location="./UsedLibraries/hamcrest-core-1.3.jar"/>
+        <!--<pathelement location="./UsedLibraries/jacocoant.jar"/>-->
+    </path>
+
+
+    <target name="compile">
+        <mkdir dir="${result.javaclasses.dir}"/>
+        <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true"  includeantruntime="false">
+        </javac>
+    </target>
+
+
+    <target name="compile-testcases" depends="compile">
+        <mkdir dir="${result.testclasses.dir}"/>
+        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false">
+            <classpath>
+
+                <path refid="NecessaryLibraries"/>
+                <pathelement location="${result.javaclasses.dir}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile-testcases">
+        <!--fork : each test will run in its own JVM (to seperate test cases)-->
+        <junit printsummary="true" haltonfailure="true" fork="true">
+            <classpath>
+                <path refid="NecessaryLibraries"></path>
+                <pathelement location="${result.javaclasses.dir}"/>
+                <pathelement location="${result.testclasses.dir}"/>
+            </classpath>
+            <formatter type="brief" usefile="false"/>
+            <batchtest >
+                <fileset dir="${result.testclasses.dir}" >s
+                     <include name="**/*testcalac.class"/>
+                </fileset>
+            </batchtest>
+
+        </junit>
+    </target>
+
+
+
+</project>
