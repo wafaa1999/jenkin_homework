@@ -14,21 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>UsedLibraries</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>UsedLibraries/hamcrest-core-1.3.jar</name>
-			<type>1</type>
-			<location>D:/Documents/Downloads/ant/UsedLibraries/hamcrest-core-1.3.jar</location>
-		</link>
-		<link>
-			<name>UsedLibraries/junit-4.12.jar</name>
-			<type>1</type>
-			<location>D:/Documents/Downloads/ant/UsedLibraries/junit-4.12.jar</location>
-		</link>
-	</linkedResources>
 </projectDescription>
