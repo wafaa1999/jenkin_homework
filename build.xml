@@ -48,7 +48,7 @@
             </classpath>
             <formatter type="brief" usefile="false"/>
             <batchtest >
-                <fileset dir="${result.testclasses.dir}" >s
+                <fileset dir="${result.testclasses.dir}" >
                      <include name="**/*calc.class"/>
                 </fileset>
             </batchtest>
