@@ -49,7 +49,7 @@
             <formatter type="brief" usefile="false"/>
             <batchtest >
                 <fileset dir="${result.testclasses.dir}" >
-                     <include name="**/*calc.class"/>
+                     <include name="**/*testcalac.class"/>
                 </fileset>
             </batchtest>
 
